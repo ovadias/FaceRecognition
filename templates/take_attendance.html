@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Take Attendance</h1>
+    <h2>{{ course.title }} - {{ selected_date }}</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput" accept="image/*">
+        <input type="hidden" name="course_id" value="{{ course.id }}">
+        <input type="hidden" name="selected_date" value="{{ selected_date }}">
+        <button type="button" id="uploadBtn">Upload</button>
+    </form>
+    <p id="uploadMessage"></p>
+    <div>
+        <button type="button" id="attendanceBtn" style="display: none;">Take Attendance</button>
+        <button type="button" id="retakeAttendanceBtn" style="display: none;">Retake Attendance</button>
+        <span id="attendanceInProgress">Attendance in progress...</span>
+    </div>
+    <div class="container">
+        <div>
+            <h2>Preview / Uploaded Image:</h2>
+            <img id="imagePreview" src="#" alt="Image will be displayed here" style="max-width: 500px; display: none;">
+        </div>
+        <div>
+            <h2>Attendance Table:</h2>
+            <div>
+                <button type="button" id="saveChangesBtn" style="display: none;">Save Changes</button>
+                <a id="downloadCsv" href="#" style="display:none;">Download Attendance CSV</a>
+            </div>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Present</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/take_attendance.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>{{ course.title }}</h1>
+    <h2>Take Attendance</h2>
+    <form id="attendanceDateForm" method="POST" action="{{ url_for('take_attendance_page', course_id=course.id) }}">
+        <label for="attendanceDate">Select a date:</label>
+        <input type="date" id="attendanceDate" name="attendanceDate" required>
+        <button type="submit">Take Attendance</button>
+    </form>
+
+    <h2>Attendance Summary</h2>
+    <table id="attendanceSummaryTable">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Days Present</th>
+                <th>Days Absent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in course.students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.days_present }}</td>
+                <td>{{ student.days_absent }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/course.js') }}"></script>
+</body>
+</html>

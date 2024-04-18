@@ -1,0 +1,44 @@
+/* styles.css */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+h1, h2 {
+    color: #333;
+}
+form {
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+#attendanceInProgress {
+    color: #ff9800;
+    font-weight: bold;
+    display: none;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
